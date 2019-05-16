@@ -9,14 +9,50 @@ var callFriend = function(){
 //Above you're given a callFriend function that returns another function. 
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
-  //code here
+var number = new callFriend();
+console.log(number("435-215-9248"))
 
 
 
 /*
 
-Write a function that accepts a function as it's first argument and returns a new function (which calls the original function that was passed in) that can only ever be executed once.
-
-Once completed, add a second arguments that allows the function to be executed N number of times. After the function has been called N number of times, console.log('STAHHP');
-
+Write a function that accepts a function as it's first argument and returns a new function
+(which calls the original function that was passed in) that can only ever be executed once.
 */
+
+function func1 (func2, times){
+  return function() {//func 3
+    func2()
+  }
+};
+
+/*
+Once completed, add a second arguments that allows the function to be executed N number of times.
+After the function has been called N number of times, console.log('STAHHP');
+*/
+
+function one (func, num) {
+  let count = 0;
+
+  return function() {
+    if (count < num) {
+        func();
+        count++; 
+      } else {
+      console.log("STAHHP");
+    }
+  }
+};
+
+
+  function hiThere() {
+    console.log("Hello!")
+  }
+
+ let sayHi = one(hiThere, 3);
+  sayHi();
+  sayHi();
+  sayHi();
+  sayHi();
+
+
